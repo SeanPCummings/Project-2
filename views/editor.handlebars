@@ -1,0 +1,66 @@
+{{> nav/nav-block}}
+
+<!-- main container -->
+<div class="mainContainer">
+    <div class="row" style="height: 100%; margin: 0px;">
+        <div class="jumbotron jumbotron-fluid flexCenter" style="padding: 0; padding-top: 3em;" role="figure">
+            <h1>Editor</h1>
+        </div>
+        <!-- pumpkin display -->
+        <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
+            <div class="pumpkinDisplay">
+                <img src="../images/pumpkin.svg" alt="pumpkin" style="width: 100%;
+                height: 100%">
+            </div>
+        </div>
+            <!-- editor hud -->
+        <div class="col-md-5 editorHudFix">
+            <div class="editorBox">
+                <div class ="editorHud">
+                    <div class="editorBtnBox">
+                        <!-- face nav -->
+                        <div class="row flexCenter" style="margin-bottom: 1em;">
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="eyesBtn">Eyes</button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="noseBtn">Nose</button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="mouthBtn">Mouth</button>
+                        </div>
+
+                        <!-- feature picker -->
+                        <div class="row flexCenter" style="margin-bottom: 2em;">
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                        </div>
+
+                        <!-- save design -->
+                        <div class="row flexCenter" style="margin: 10px;">
+                            <form id= "create-form">
+                                <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" id="designName" placeholder="Name your design">
+                                </div>
+                                <div class="col-md-12 flexBetween">
+                                    <button type="submit" id="saveBtn" class="btn btn-primary">Save</button>
+                                    <button type="submit" id="resetBtn" class="btn btn-primary">Reset</button>
+                                </div>
+                                </div>
+                            </form>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/editor.js"></script>
+
+{{> modal/login-block}}
+
+
