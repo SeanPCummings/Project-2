@@ -1,74 +1,185 @@
-body {
-  color: white;
-  background-size: cover;
-  height:100%
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 7rem;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/background.svg");
+    background-size: cover;
+}
+
+.mainPgImg {
+    background-image: url("/images/mainpage.svg");
+}
+
+.bg-dark {
+    background-color:#051021 !important;
+}
+
+.btn-primary {
+    border-color: white !important;
+    border-width: 2px !important;
+}
+
+.editorBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.editorHud {
+    margin-right: 3em !important;
+    margin-left: 3em !important;
+    margin-top: 3em;
+    margin-bottom: 3em !important;
+    background-color:  rgba(0, 0, 0, .5);
+    border-radius: 1em;
+}
+
+.editorBtnBox {
+    margin: 2em;
+    border-style: solid;
+    border-color: white;
+    padding: 1em;
+    border-radius: 1em;
+    border-width: 1.5px;
+}
+
+.editorBtns {
+    width: 6em;
+    height: 6em;
+    margin: 10px !important;
+}
+
+.editorHudFix {
+    display: flex;
+    padding-right: 0px;
+    padding-left: 0px;
+    justify-content: center;
+}
+
+.faceBtns {
+    margin: 10px !important;
+}
+
+.pumpkinDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 3em;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexL {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flexR {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flexBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.jumbotron-fluid {
+    width: 100%;
 }
 
 .jumbotron {
-  background: rgba(0,0,0,0);
+    margin-bottom: 0px !important;
+    margin-top: 3em;
+    background-color: rgba(255, 0, 0, 0);
+    color: white;
+}
+
+/*prebuilt */
+body {
+    background-size: cover;
+    height:100%
 }
 
 .modal {
-  color: black;
-}
-
-.btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
+    color: black;
 }
 
 #user-form, .header-wrap, #create-form, .create-user-wrap {
-  padding: 20px;
-  border-radius: 15px;
-  margin: 20px 0;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
 }
 
 #update-err-msg,
 #login-err-msg,
 #create-err-msg {
-  color: red !important;
+    color: red !important;
 }
 
 #go-home {
- width: auto;
- height: 65px;
+    width: auto;
+    height: 65px;
 }
 
 .container {
-  padding-bottom: 2%;
-  margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
-  margin-bottom: 2%;
-  width: 600px;
+    padding-bottom: 2%;
+    margin-top: 10%;
+    background: rgba(86, 101, 115,.6);
+    height:auto;
+    border-radius: 1rem;
+    margin-bottom: 2%;
+    width: 600px;
 }
 
 [data-useremail="true"] {
-  color: white !important;
+    color: white !important;
 }
 [data-register="true"] {
-  color: white !important;
+    color: white !important;
 }
 
 .lead {
-  font-size: 1.8rem;
-  font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
 .userId h2, .header-wrap h1 {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 hr {
-  background-color: #fff !important;
+    background-color: #fff !important;
 }
 
 .list-group-item {
-  line-height: 2.5;
+    line-height: 2.5;
 }
 
 .card-body {
-  color: #444;
+    color: #444;
+}
+
+.lead {
+    font-size: 120px;
+    font-family: 'Dancing Script', cursive;
+    padding-top: 4rem;
+}
+
+/* DELETE THIS*/
+.circle {
+    width: 20em;
+    height: 20em;
+    background: white;
+    border-radius: 50%
 }

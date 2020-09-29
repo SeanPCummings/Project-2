@@ -56,11 +56,27 @@ module.exports = (db) => {
     }
   });
 
-  // Load example index page
-  router.get('/example', function (req, res) {
+  // Load gallery page
+  router.get('/gallery', function (req, res) {
     if (req.isAuthenticated()) {
       db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
-        res.render('example', {
+        res.render('gallery', {
+          userInfo: req.session.passport.user,
+          isloggedin: req.isAuthenticated(),
+          msg: 'Welcome!',
+          examples: dbExamples
+        });
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
+  // Load editor page
+  router.get('/editor', function (req, res) {
+    if (req.isAuthenticated()) {
+      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
+        res.render('editor', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
           msg: 'Welcome!',

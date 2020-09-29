@@ -1,15 +1,54 @@
-{{> nav/nav-block}}
-
-<div id="main-container" class="container">
+{{> nav/nav-block user=false register=true}}
+<div id="main-container" class="mainContainer flexCenter mainPgImg">
   <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead">Welcome to <strong>Sample App</strong></p>
-    <hr class="my-4">
+    <p class="lead">Pixel Patch</p>
     <div>
       {{#if isloggedin}}
-        You are logged in as {{user.firstName}}
-        <a href="/logout"> <button type="btn" class="btn">Logout</button></a>
+        <div class="row">
+          <div class="col col-md-12">
+            You are logged in as {{user.email}} <br>
+            <a href="/logout"> <button type="btn" class="btn" style="margin-top: 25px;">Logout</button></a>
+          </div>  
+        </div>  
+      </div>
+  
       {{else}}
-        <p>You need to log in to use this app.</p>
+        <div class="container" style="background: rgba(0, 0, 0,.5) !important;">
+          <div class="row">
+            <div class="col col-md-12">
+              <header class="create-user-wrap header-wrap" align="center">
+                <h2>Create Your Account</h2>
+                <h3 id="create-err-msg"></h3>
+              </header>
+
+              <h3 id="err-msg"></h3>
+
+              <form id= "create-form">
+                 
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
+                </div>
+
+                <div>
+                  <h2 id="message"></h2>
+                </div>
+
+                <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+          <p>You need to log in to use this app.</p>
+        </div>    
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

@@ -1,0 +1,62 @@
+{{> nav/nav-block}}
+
+<!-- main container -->
+<div class="mainContainer">
+    <div class="row" style="height: 100%; margin: 0px;">
+        <div class="jumbotron jumbotron-fluid flexCenter" style="padding: 0; padding-top: 3em;" role="figure">
+            <h1>Gallery</h1>
+        </div>
+        
+            <!-- Gallery -->
+        <div class="col-md-5 editorHudFix">
+            <div class="editorBox">
+                <div class ="editorHud">
+                    <!-- Gallery nav -->
+                    <div class="editorBtnBox">
+                        <div class="row flexCenter" style="margin-bottom: 1em;">
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="myStencils">My Stencils</button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="allStencils">All Stencils</button>
+                        </div>
+
+                        <!-- Gallery picker -->
+                        <div class="row flexCenter" style="margin-bottom: 2em;">
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                        </div>
+
+                        <!-- edit/download -->
+                        <div class="row flexCenter" style="margin: 10px;">
+                            <div class="col-md-12 flexBetween">
+                                <button type="submit" id="editBtn" class="btn btn-primary">Edit</button>
+                                <button type="submit" id="downloadBtn" class="btn btn-primary">Download Stencil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- pumpkin display -->
+        <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
+            <div class="pumpkinDisplay">
+                <img src="../images/pumpkin.svg" alt="pumpkin" style="width: 100%;
+                height: 100%">
+            </div>    
+        </div>
+
+
+    </div>
+</div>
+
+<script src="/assets/js/gallery.js"></script>
+
+{{> modal/login-block}}
+
+
