@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
   Nose.associate = function (models) {
     // We're saying that a Nose should belong to a Pumpkin
     // An instance of a Nose can't be created without an Pumpkin due to the foreign key constraint
-    Nose.belongsTo(models.User.Pumpkin, {
+    Nose.belongsTo(models.Pumpkin, {
       foreignKey: {
         allowNull: false
       }
