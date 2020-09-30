@@ -8,10 +8,10 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true
     },
     // firstName: {
-    //   type: DataTypes.STRING
+    //  type: DataTypes.STRING
     // },
     // lastName: {
-    //   type: DataTypes.STRING
+    //  type: DataTypes.STRING
     // },
     email: {
       type: DataTypes.STRING,
