@@ -8,9 +8,9 @@ module.exports = (passport, db) => {
       db.User.sync().then(() => {
         const newUser = {
           email: req.body.email,
-          password: req.body.password,
-          firstName: req.body.firstName,
-          lastName: req.body.lastName
+          password: req.body.password
+          // firstName: req.body.firstName,
+          // lastName: req.body.lastName
         };
 
         return db.User.create(newUser).then(() => {
@@ -52,8 +52,8 @@ module.exports = (passport, db) => {
       // console.log('req.body:', req.body);
       db.User.update({
         email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        // firstName: req.body.firstName,
+        // lastName: req.body.lastName,
         password: req.body.password
       }, {
         where: { id: req.params.id }

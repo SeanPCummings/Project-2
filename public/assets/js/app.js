@@ -2,13 +2,13 @@ $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
+    // firstName: $('#inputFirst').val().trim(),
+    // lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
-
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  // in case we want to keep first and last name add && newAccount.lastName.length > 0 && newAccount.firstName.length > 0
+  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -29,8 +29,8 @@ $('#update-user').on('click', function (event) {
 
   // capture All changes
   const changeUser = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
+    // firstName: $('#inputFirst').val().trim(),
+    // lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
