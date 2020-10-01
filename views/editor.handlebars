@@ -9,8 +9,24 @@
         <!-- pumpkin display -->
         <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
             <div class="pumpkinDisplay">
-                <img src="../images/pumpkin.svg" alt="pumpkin" style="width: 100%;
-                height: 100%">
+                <!--pumpkin -->
+                {{> svg/pumpkin}}
+                    <!--eyes -->
+                    <g id="eyesgroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="eyespath"
+                        d=""/>
+                    </g>
+                    <!--nose -->
+                    <g id="nosegroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="nosepath"
+                        d=""/>
+                    </g>
+                    <!--mouth -->
+                    <g id="mouthgroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="mouthpath"
+                        d=""/>
+                    </g>
+                </svg>
             </div>
         </div>
             <!-- editor hud -->
