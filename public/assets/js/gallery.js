@@ -1,6 +1,11 @@
 /*eslint-disable*/
 
 
+//function to render users saved stencils
+
+//function to render all premade db stencils
+
+
 
 
 

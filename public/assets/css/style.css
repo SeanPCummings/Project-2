@@ -177,6 +177,15 @@ hr {
     padding-top: 4rem;
 }
 
+.hide {
+    display: none;
+}
+
+.partNav {
+    padding: 0;
+    margin: 0;
+}
+
 /* DELETE THIS*/
 .circle {
     width: 20em;

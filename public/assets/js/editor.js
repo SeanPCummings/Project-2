@@ -1,5 +1,7 @@
 /*eslint-disable*/
 //global variable of images
+
+
 const testFaceData = {
     eyes: [{
         id: 1,
@@ -33,30 +35,22 @@ const testFaceData = {
     }]
 };
 
-$("#featurePicker").empty("");
+
 
 //functions to loop through images
-function eyeLoop(){
+function eyesLoop(){
     console.log(testFaceData);
     console.log(testFaceData.eyes.length);
     //for loop or look into a array.map()
     for(let i = 0; i < testFaceData.eyes.length; i++){
         console.log(testFaceData.eyes[i].name)
 
-        const eyeSVG = '<svg version=/"1.1/" viewBox=/"0 0 100 100/" width=/"80/" height=/"80/"><g><path style=/"fill:#000000;stroke:none/" id=/"eyespath/" d=/"' + $(testFaceData.eyes[i].d) + '/"></g></svg>';
+        const eyeSVG = '<svg version="1.1" viewBox="0 0 100 100" width="80" height="80"><g><path style="fill:#000000;stroke:none" id="eyespath" d="' + testFaceData.eyes[i].d + '"></g></svg>';
 
-        var eyeBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).html(eyeSVG)
+        var eyeBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr("data-type", "eyes").html(eyeSVG)
 
-        // var eyeBtn = `<button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns">
-        // <g id="eyesgroup"
-        // transform="translate(0,0)">
-        //                 <path style="fill:#000000;fill-opacity:1;stroke:none" id="eyespath"
-        //                 d="${testFaceData.eyes[i].d}"/>
-        //             </g>
-        // </button>`;
         
-        $("#featurePicker").append(eyeBtn);
-        location.reload();
+        $("#eyesNav").append(eyeBtn);
         
     }
     
@@ -69,40 +63,72 @@ function noseLoop(){
     for(let i = 0; i < testFaceData.nose.length; i++){
         console.log(testFaceData.nose[i].name)
 
-        const noseSVG = '<svg version=/"1.1/" viewBox=/"0 0 100 100/" width=/"80/" height=/"80/"><g><path style=/"fill:#000000;stroke:none/" id=/"nosepath/" d=/"' + $(testFaceData.nose[i].d) + '/"></g></svg>';
+        const noseSVG = '<svg version="1.1" viewBox="0 0 100 100" width="80" height="80"><g><path style="fill:#000000;stroke:none" id="nosepath" d="' + testFaceData.nose[i].d + '"></g></svg>';
 
-        var noseBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).html(noseSVG)
+        var noseBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr("data-type", "nose").html(noseSVG)
 
-        $("#featurePicker").append(noseBtn);
+        
+        $("#noseNav").append(noseBtn);
 
-        location.reload();
     }
 }
 
 function mouthLoop(){
     console.log(testFaceData.mouth)
+    for(let i = 0; i < testFaceData.mouth.length; i++){
+        console.log(testFaceData.mouth[i].name)
+
+        const mouthSVG = '<svg version="1.1" viewBox="0 0 100 100" width="80" height="80"><g><path style="fill:#000000;stroke:none" id="mouthpath" d="' + testFaceData.mouth[i].d + '"></g></svg>';
+
+        var mouthBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr("data-type", "mouth").html(mouthSVG)
+
+        
+        $("#mouthNav").append(mouthBtn);
+    }
+    
 }
 
 
 //function to save face stencil
 function savePumpkin(){
+    $('#saveBtn').on("submit", function(event) {
+        event.preventDefault();
+
+        let newStencil = {
+            pumpkin_name: $().val().trim(),
+
+        };
+        console.log(newStencil)
+        //send stencil to database
+        $.ajax("/api/pumpkin", {
+            type: "",
+            data: newStencil
+        }).then(function() {
+            console.log("Saved new stencil")
+            location.reload();
+        });
+    });
 
 }
 
-//function to reset stencil
-function resetPumpkin(){
+// //function to reset stencil
+// function resetPumpkin(){
 
-}
+// }
+
 
 ////////CLICK EVENTS FOR EDITOR PAGE///////////
 $(document).ready(function () {
     // onclick for eyes
     //show items for all the eyes
+    
+
     $('#eyesBtn').on('click', function (event) {
         event.preventDefault();
         console.log("Eyes button clicked");
-        eyeLoop();
-
+        $("#eyesNav").removeClass("hide");
+        $("#noseNav").addClass("hide");
+        $("#mouthNav").addClass("hide");
     });
 
     //on click for nose
@@ -110,7 +136,10 @@ $(document).ready(function () {
     $('#noseBtn').on('click', function (event) {
         event.preventDefault();
         console.log("Nose button clicked");
-        noseLoop();
+        $("#noseNav").removeClass("hide");
+        $("#eyesNav").addClass("hide");
+        $("#mouthNav").addClass("hide");
+        
 
     });
 
@@ -119,7 +148,9 @@ $(document).ready(function () {
     $('#mouthBtn').on('click', function (event) {
         event.preventDefault();
         console.log("Mouth button clicked");
-        mouthLoop();
+        $("#mouthNav").removeClass("hide");
+        $("#noseNav").addClass("hide");
+        $("#eyesNav").addClass("hide");
 
     });
 
@@ -140,3 +171,16 @@ $(document).ready(function () {
     });
   
 })
+
+eyesLoop();
+noseLoop();
+mouthLoop();
+
+
+//   var eyeBtn = `<button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns">
+//         <g id="eyesgroup"
+//         transform="translate(0,0)">
+//                         <path style="fill:#000000;fill-opacity:1;stroke:none" id="eyespath"
+//                         d="${testFaceData.eyes[i].d}"/>
+//                     </g>
+//         </button>`;
