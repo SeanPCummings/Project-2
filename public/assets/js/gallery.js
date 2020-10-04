@@ -9,11 +9,6 @@
 
 
 
-
-
-
-
-
 ////////CLICK EVENTS FOR GALLERY PAGE///////////
 $(document).ready(function () {
 

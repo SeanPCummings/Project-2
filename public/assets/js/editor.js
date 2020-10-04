@@ -36,8 +36,7 @@ const testFaceData = {
 };
 
 
-
-//functions to loop through images
+//functions to loop through images 
 function eyesLoop(){
     console.log(testFaceData);
     console.log(testFaceData.eyes.length);
@@ -90,31 +89,37 @@ function mouthLoop(){
 
 
 //function to save face stencil
-function savePumpkin(){
-    $('#saveBtn').on("submit", function(event) {
-        event.preventDefault();
+// function savePumpkin(){
+//     $('#saveBtn').on("submit", function(event) {
+//         event.preventDefault();
 
-        let newStencil = {
-            pumpkin_name: $().val().trim(),
+//         let newStencil = {
+//             pumpkin_name: $().val().trim(),
 
-        };
-        console.log(newStencil)
-        //send stencil to database
-        $.ajax("/api/pumpkin", {
-            type: "",
-            data: newStencil
-        }).then(function() {
-            console.log("Saved new stencil")
-            location.reload();
-        });
-    });
+//         };
+//         console.log(newStencil)
+//         //send stencil to database
+//         $.ajax("/api/pumpkin", {
+//             type: "",
+//             data: newStencil
+//         }).then(function() {
+//             console.log("Saved new stencil")
+//             location.reload();
+//         });
+//     });
 
-}
+// }
 
 // //function to reset stencil
 // function resetPumpkin(){
 
 // }
+
+// $('#eyesBtn').on('click', function (event){
+//     event.preventDefault();
+//     $('#eyespath').attr('d', eyes);
+
+// })
 
 
 ////////CLICK EVENTS FOR EDITOR PAGE///////////
@@ -163,7 +168,7 @@ $(document).ready(function () {
     });
 
     //on click for reset button
-    $('#saveBtn').on('click', function (event) {
+    $('#resetBtn').on('click', function (event) {
         event.preventDefault();
         console.log("Reset button clicked");
         resetPumpkin();
@@ -175,12 +180,3 @@ $(document).ready(function () {
 eyesLoop();
 noseLoop();
 mouthLoop();
-
-
-//   var eyeBtn = `<button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns">
-//         <g id="eyesgroup"
-//         transform="translate(0,0)">
-//                         <path style="fill:#000000;fill-opacity:1;stroke:none" id="eyespath"
-//                         d="${testFaceData.eyes[i].d}"/>
-//                     </g>
-//         </button>`;
