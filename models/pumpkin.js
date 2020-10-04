@@ -6,16 +6,16 @@ module.exports = function (sequelize, DataTypes) {
       primaryKey: true
     },
     eyes: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     nose: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     mouth: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     },
     user: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
     }
   });
   Pumpkin.associate = function (models) {

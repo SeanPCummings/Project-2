@@ -8,18 +8,9 @@ module.exports = function (sequelize, DataTypes) {
     name: {
       type: DataTypes.STRING
     },
-    assetName: {
-      type: DataTypes.STRING
+    assetPath: {
+      type: DataTypes.TEXT
     }
   });
-  Nose.associate = function (models) {
-    // We're saying that a Nose should belong to a Pumpkin
-    // An instance of a Nose can't be created without an Pumpkin due to the foreign key constraint
-    Nose.belongsTo(models.Pumpkin, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
   return Nose;
 };
