@@ -51,6 +51,7 @@ h1 {
     width: 6em;
     height: 6em;
     margin: 10px !important;
+    padding: 6px !important;
 }
 
 .editorHudFix {
@@ -174,6 +175,15 @@ hr {
     font-size: 120px;
     font-family: 'Dancing Script', cursive;
     padding-top: 4rem;
+}
+
+.hide {
+    display: none;
+}
+
+.partNav {
+    padding: 0;
+    margin: 0;
 }
 
 /* DELETE THIS*/

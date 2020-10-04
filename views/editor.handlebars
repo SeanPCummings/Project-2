@@ -35,25 +35,21 @@
                 <div class ="editorHud">
                     <div class="editorBtnBox">
                         <!-- face nav -->
-                        <div class="row flexCenter" style="margin-bottom: 1em;">
+                        <div class="row flexCenter" style="margin-bottom: 1em;" id="faceNav">
                             <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="eyesBtn">Eyes</button>
                             <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="noseBtn">Nose</button>
                             <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="mouthBtn">Mouth</button>
                         </div>
 
                         <!-- feature picker -->
-                        <div class="row flexCenter" style="margin-bottom: 2em;">
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                        <div class="row flexCenter" style="margin-bottom: 2em;" id="featureNav">
+                            
+                        <div id="eyesNav" class="partNav"></div>
+                        <div id="noseNav" class="partNav hide"></div>
+                        <div id="mouthNav" class="partNav hide"></div>
+                           
                         </div>
-
+                        
                         <!-- save design -->
                         <div class="row flexCenter" style="margin: 10px;">
                             <form id= "create-form">
