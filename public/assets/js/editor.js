@@ -4,6 +4,14 @@
 // global faceParts object
 let faceParts = null;
 
+// current face data for upload
+let currentFace = {
+    eyes: 0,
+    nose: 0,
+    mouth: 0,
+    name: ""
+};
+
 
 //functions to loop through images 
 function eyesLoop(){
@@ -45,6 +53,24 @@ function resetPumpkin(){
     $('#mouthpath').attr('d', faceParts.mouth[0].assetPath);
 }
 
+//save pumpkin
+function savePumpkin() {
+    console.log(currentFace);
+
+    // Send the POST request.
+    $.ajax("/api/saveface", {
+        type: "POST",
+        data: currentFace
+      }).then(
+        function() {
+          console.log("new faceee");
+          // Reload the page
+          location.reload();
+        }
+      );
+}
+
+//run startUp at ready
 $(document).ready(function () {
     startUp();
 });
@@ -70,7 +96,6 @@ function setUpClickEvents(){
     // show items for eyes
     $('#eyesBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Eyes button clicked");
         $("#eyesNav").removeClass("hide");
         $("#noseNav").addClass("hide");
         $("#mouthNav").addClass("hide");
@@ -80,39 +105,32 @@ function setUpClickEvents(){
     //show items for nose
     $('#noseBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Nose button clicked");
         $("#noseNav").removeClass("hide");
         $("#eyesNav").addClass("hide");
         $("#mouthNav").addClass("hide");
-        
-
     });
 
     //on click for mouth
     //show items for mouth
     $('#mouthBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Mouth button clicked");
         $("#mouthNav").removeClass("hide");
         $("#noseNav").addClass("hide");
         $("#eyesNav").addClass("hide");
-
     });
 
     //on click for save button
     $('#saveBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Save button clicked");
+        let name = $("#designName").val().trim();
+        currentFace.name = name;
         savePumpkin();
-
     });
 
     //on click for reset button
     $('#resetBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Reset button clicked");
         resetPumpkin();
-
     });
 
     // on click for thumbnails
@@ -123,9 +141,16 @@ function setUpClickEvents(){
         const type = target.dataset.type;
       
         switch (type) {
-          case 'eyes': $('#eyespath').attr('d', faceParts.eyes[index].assetPath); break;
-          case 'nose': $('#nosepath').attr('d', faceParts.nose[index].assetPath); break;
-          case 'mouth': $('#mouthpath').attr('d', faceParts.mouth[index].assetPath); break;
+          case 'eyes': $('#eyespath').attr('d', faceParts.eyes[index].assetPath); 
+          // active face part
+          currentFace.eyes = faceParts.eyes[index].id;  
+          break;
+          case 'nose': $('#nosepath').attr('d', faceParts.nose[index].assetPath);           
+          currentFace.nose = faceParts.nose[index].id;  
+          break;
+          case 'mouth': $('#mouthpath').attr('d', faceParts.mouth[index].assetPath);           
+          currentFace.mouth= faceParts.mouth[index].id;  
+          break;
         }
       });
 }

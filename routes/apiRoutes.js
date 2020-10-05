@@ -18,8 +18,9 @@ module.exports = (passport, db) => {
   router.post('/examples', AppController.createExample);
   router.delete('/examples/:id', AppController.deleteExample);
 
-  // TEST
+  // Get all facial features
   router.get('/faceparts', AppController.getFaceParts);
+  router.post('/saveface', AppController.saveFace);
 
   return router;
 };
