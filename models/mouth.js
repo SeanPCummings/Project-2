@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Mouth = sequelize.define('Mouth', {
+  const Mouths = sequelize.define('Mouths', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -12,5 +12,5 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  return Mouth;
+  return Mouths;
 };

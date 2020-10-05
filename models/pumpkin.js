@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Pumpkin = sequelize.define('Pumpkin', {
+  const Pumpkins = sequelize.define('Pumpkins', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -18,15 +18,15 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  Pumpkin.associate = function (models) {
+  Pumpkins.associate = function (models) {
     // We're saying that a Pumpkin should belong to an User
     // A Pumpkin can't be created without an User due to the foreign key constraint
 
-    Pumpkin.belongsTo(models.User, {
+    Pumpkins.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Pumpkin;
+  return Pumpkins;
 };

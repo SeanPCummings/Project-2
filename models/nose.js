@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Nose = sequelize.define('Nose', {
+  const Noses = sequelize.define('Noses', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -12,5 +12,5 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  return Nose;
+  return Noses;
 };
