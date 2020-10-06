@@ -189,6 +189,25 @@ hr {
     text-align: center;
 }
 
+.overflow-auto {
+    overflow: auto;
+    max-height: 350px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #051021;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black; 
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+}
+
 /* DELETE THIS*/
 .circle {
     width: 20em;
