@@ -39,10 +39,16 @@ module.exports = function (db) {
 
     // Save pumpkin face
     saveFace: function (req, res) {
-      let userFace = JSON.parse(req.body.val);
-      db.Pumpkins.create(userFace).then(function (val) {
-        res.json(val);
-      });
+      console.log(req.body);
+      let userFace = req.body.byid
+      req.body = parseInt(req.body, NaN)
+      //TODO: 
+        db.Pumpkin.create(userFace).then(function(){
+          console.log("pumpkin added to db")
+          res.json(userFace);
+        })
+      // 1. within userFace convert values of eyes nose and mouth into integers, right now they're strings
+      // 2. insert userFace into the databasee
     } 
 
   };
