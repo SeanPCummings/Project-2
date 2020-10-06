@@ -9,7 +9,6 @@ module.exports = (passport, db) => {
         const newUser = {
           email: req.body.email,
           password: req.body.password
-          // firstName: req.body.firstName,
           // lastName: req.body.lastName
         };
 
@@ -52,7 +51,6 @@ module.exports = (passport, db) => {
       // console.log('req.body:', req.body);
       db.User.update({
         email: req.body.email,
-        // firstName: req.body.firstName,
         // lastName: req.body.lastName,
         password: req.body.password
       }, {

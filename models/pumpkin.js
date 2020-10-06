@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     mouth: {
       type: DataTypes.TEXT
     },
-    user: {
+    name: {
       type: DataTypes.TEXT
     }
   });

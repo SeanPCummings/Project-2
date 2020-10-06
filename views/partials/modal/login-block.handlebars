@@ -1,8 +1,9 @@
+<!-- Actually for creating an account, not login-->
 <div class="modal" id="user-info" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Credentials</h5>
+        <h5 class="modal-title">Create your Account</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -11,18 +12,26 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="inputAccount">Email</label>
-            <input type="text" class="form-control" id="email">
+            <label for="inputUserName">User Name</label>
+            <input type="email" class="form-control" id="inputUser" placeholder="User Name">
           </div>
           <div class="form-group">
-            <label for="inputAccount">Password</label>
-            <input type="password" class="form-control" id="user_password">
+            <label for="inputUserEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
           </div>
         </form>
       </div>
 
+      <div>
+        <h3 id ="create-err-msg" style="font-size: 15px; text-align: center;"></h3>
+      </div>
+
       <div class="modal-footer">
-        <button id="login" type="button" class="btn btn-primary">Login</button>
+        <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
