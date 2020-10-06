@@ -2,13 +2,13 @@ const router = require('express').Router();
 
 module.exports = (db) => {
   // Load register page
-  router.get('/register', (req, res) => {
-    if (req.isAuthenticated()) {
-      res.redirect('/profile');
-    } else {
-      res.render('register');
-    }
-  });
+  // router.get('/register', (req, res) => {
+  //   if (req.isAuthenticated()) {
+  //     res.redirect('/profile');
+  //   } else {
+  //     res.render('register');
+  //   }
+  // });
 
   // Load profile page
   router.get('/profile', (req, res) => {
@@ -50,6 +50,7 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
+      console.log(req.session.passport);
       res.render('dashboard', user);
     } else {
       res.render('dashboard');

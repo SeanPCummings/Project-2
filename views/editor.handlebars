@@ -52,13 +52,13 @@
                         
                         <!-- save design -->
                         <div class="row flexCenter" style="margin: 10px;">
-                            <form id= "create-form">
+                            <form id= "create-form" style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <input type="text" class="form-control" id="designName" placeholder="Name your design">
                                     </div>
                                     <div class="col-md-12 flexBetween">
-                                        <button type="submit" id="saveBtn" class="btn btn-primary">Save</button>
+                                        <button type="submit" id="saveBtn" class="btn btn-primary" data-userid="{{userInfo.id}}">Save</button>
                                         <button type="submit" id="resetBtn" class="btn btn-primary">Reset</button>
                                     </div>
                                 </div>
@@ -73,6 +73,7 @@
 
 <script src="/assets/js/editor.js"></script>
 
+<!-- actually the create user modal-->
 {{> modal/login-block}}
 
 

@@ -24,16 +24,18 @@ h1 {
 }
 
 .editorBox {
-    width: 100%;
+    /* width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
+    margin-bottom: 3em;
 }
 
 .editorHud {
     margin-right: 3em !important;
     margin-left: 3em !important;
-    margin-top: 3em;
-    margin-bottom: 3em !important;
+    /* margin-top: 3em; */
+    /* margin-bottom: 3em !important; */
+    padding: .05em;
     background-color:  rgba(0, 0, 0, .5);
     border-radius: 1em;
 }
@@ -184,6 +186,7 @@ hr {
 .partNav {
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 /* DELETE THIS*/
