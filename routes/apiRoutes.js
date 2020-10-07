@@ -22,5 +22,8 @@ module.exports = (passport, db) => {
   // Gallery
   router.get('/gallery/:id', AppController.getGallery);
 
+  // Get single pumpkin
+  router.get('/pumpkin/:id', AppController.getPumpkin);
+
   return router;
 };

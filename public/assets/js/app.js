@@ -4,12 +4,12 @@ $('#add-user').on('click', function (event) {
   const newAccount = {
     // firstName: $('#inputFirst').val().trim(),
     // lastName: $('#inputLast').val().trim(),
-    inputUser: $('#inputUser').val().trim(),
+    username: $('#inputUser').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
   // in case we want to keep first and last name add && newAccount.lastName.length > 0 && newAccount.firstName.length > 0
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.inputUser.length > 0) {
+  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.username.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -31,7 +31,7 @@ $('#update-user').on('click', function (event) {
   // capture All changes
   const changeUser = {
     // firstName: $('#inputFirst').val().trim(),
-    inputUser: $('#inputUser').val().trim(),
+    username: $('#inputUser').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
@@ -39,7 +39,7 @@ $('#update-user').on('click', function (event) {
   // $('#change-user-modal').modal('show');
   console.log(changeUser);
 
-  if (changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.inputUser.length > 0) {
+  if (changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.username.length > 0) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
@@ -70,10 +70,10 @@ $('#confirm-delete').on('click', function (event) {
   const deleteUser = {
     email: $('#userEmail').val().trim(),
     password: $('#userPassword').val().trim(),
-    inputUser: $('#inputUser').val().trim()
+    username: $('#inputUser').val().trim()
   };
 
-  if (deleteUser.email.length > 0 && deleteUser.password.length > 0 && deleteUser.inputUser.length > 0) {
+  if (deleteUser.email.length > 0 && deleteUser.password.length > 0 && deleteUser.username.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/user/confirm',

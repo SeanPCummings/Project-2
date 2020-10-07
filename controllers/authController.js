@@ -1,15 +1,16 @@
 module.exports = (passport, db) => {
   return {
     register: (req, res) => {
-      if (!req.body.email || !req.body.password) {
+      console.log(req.body);
+      if (!req.body.email || !req.body.password || !req.body.username) {
         return res.json({ message: 'Email and Password required!' });
       }
 
       db.User.sync().then(() => {
         const newUser = {
           email: req.body.email,
-          password: req.body.password
-          // lastName: req.body.lastName
+          password: req.body.password,
+          username: req.body.username
         };
 
         return db.User.create(newUser).then(() => {

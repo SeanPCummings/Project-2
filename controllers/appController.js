@@ -36,6 +36,16 @@ module.exports = function (db) {
       }).then(val => {
         res.json(val);
       });
+    },
+
+    // Get single pumpkin
+    getPumpkin: function (req, res) {
+      db.Pumpkin.findOne({
+        where: {id: req.params.id}
+      }).then(val => {
+        res.json(val);
+      });
     } 
+
   };
 };

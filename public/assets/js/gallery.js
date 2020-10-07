@@ -2,6 +2,7 @@
 
 // global faceParts object
 let faceParts = null;
+let currentFaceId = 0;
 
 // face loop
 function faceLoop(){
@@ -13,11 +14,10 @@ function faceLoop(){
         faceSVG += '<g><path style="fill:#000000;stroke:none" d="' + faceParts[i].Nose.assetPath + '"></g>';
         faceSVG += '<g><path style="fill:#000000;stroke:none" d="' + faceParts[i].Mouth.assetPath + '"></g>';
         faceSVG += '</svg>';
-        const faceBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).html(faceSVG);
+        const faceBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr('title', faceParts[i].name).html(faceSVG);
         $("#galleryThumbs").append(faceBtn);
     }
 }
-
 
 //builds gallery thumbnails
 function buildThumbnails(){
@@ -44,33 +44,44 @@ function startUp(){
     });
 }
 
-
-
-
 ////////CLICK EVENTS FOR GALLERY PAGE///////////
 function setUpClickEvents() {
 
     //on click for edit button
     $('#editBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Edit button clicked");
+        window.location.href = "/editor/" + currentFaceId;
+    });
+    
+    //on click for new pumpkin button
+    $('#newPumpkinBtn').on('click', function (event) {
+        event.preventDefault();
+        window.location.href = "/editor";
     });
 
     //on click for download button
     $('#downloadBtn').on('click', function (event) {
         event.preventDefault();
-        console.log("Download button clicked");
+        window.location.href = "/stencil/" + currentFaceId;
     });
 
-    // on click for thumbnails
+    // on click for thumbnails for gallery
     $('.editorBtns').on('click', function (event) {
         event.preventDefault();
         const target = event.currentTarget;
         const index = target.dataset.index;
-        
+
+        // active button
+        $(".editorBtns").removeClass("actively");
+        target.classList.add("actively");
+
+        // pumpkin face path data
         $('#eyespath').attr('d', faceParts[index].Eye.assetPath); 
         $('#nosepath').attr('d', faceParts[index].Nose.assetPath);           
-        $('#mouthpath').attr('d', faceParts[index].Mouth.assetPath);           
+        $('#mouthpath').attr('d', faceParts[index].Mouth.assetPath);  
+        
+        currentFaceId = faceParts[index].id;
+        console.log(currentFaceId);
 
     });
 }
