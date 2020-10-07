@@ -11,7 +11,6 @@ let currentFace = {
     name: ""
 };
 
-
 //functions to loop through images 
 function eyesLoop(){
     //for loop or look into a array.map()
@@ -39,6 +38,7 @@ function mouthLoop(){
     }
 }
 
+// builds thumbnails
 function buildThumbnails(){
     eyesLoop();
     noseLoop();
@@ -52,19 +52,56 @@ function resetPumpkin(){
     $('#mouthpath').attr('d', faceParts.mouth[0].assetPath);
 }
 
+//function to set pumpkin from gallery by id
+function setPumpkin(){
+    const pumpkinId = $(".mainContainer").data("pumpkinid");
+    if (pumpkinId == 0) {return;}
+    $.ajax({
+        type: "GET",
+        url: "/api/pumpkin/" + pumpkinId,    
+        success: function(response) {
+            console.log(response);
+            currentFace.EyeId = response.EyeId;  
+            currentFace.NoseId = response.NoseId;  
+            currentFace.MouthId = response.MouthId;  
+
+            // search faceParts for matching ids, then set face vector data
+            for (let i = 0; i < faceParts.eyes.length; i++){
+                if (currentFace.EyeId == faceParts.eyes[i].id){
+                    $('#eyespath').attr('d', faceParts.eyes[i].assetPath);
+                    break;
+                }
+            }
+
+            for (let i = 0; i < faceParts.nose.length; i++){
+                if (currentFace.NoseId == faceParts.nose[i].id){
+                    $('#nosepath').attr('d', faceParts.nose[i].assetPath);
+                    break;
+                }
+            }
+
+            for (let i = 0; i < faceParts.mouth.length; i++){
+                if (currentFace.MouthId == faceParts.mouth[i].id){
+                    $('#mouthpath').attr('d', faceParts.mouth[i].assetPath);
+                    break;
+                }
+            }
+        }
+    });
+}
+
 //save pumpkin
 function savePumpkin() {
     // Send the POST request.
     $.ajax("/api/saveface", {
         type: "POST",
         data: {val: JSON.stringify(currentFace)}
-      }).then(
+    }).then(
         function() {
-          // Reload the page
-          location.reload();
-        
+        // Reload the page
+        location.reload();
         }
-      );
+    );
 }
 
 //run startUp at ready
@@ -82,6 +119,7 @@ function startUp(){
             faceParts = response;
             buildThumbnails();
             resetPumpkin();
+            setPumpkin();
             setUpClickEvents();
         }
       });
@@ -125,7 +163,6 @@ function setUpClickEvents(){
         currentFace.UserId = userid;
         savePumpkin();
         $('.alert').hide().show();
-       
     });
 
     // on click for thumbnails

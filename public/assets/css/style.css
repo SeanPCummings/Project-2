@@ -78,6 +78,10 @@ h1 {
     padding: 3em;
 }
 
+.actively {
+    background-color: rgb(82, 27, 82) !important;
+}
+
 .flexCenter {
     display: flex;
     align-items: center;

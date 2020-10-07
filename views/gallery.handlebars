@@ -8,19 +8,24 @@
         <div class="col-md-5 editorHudFix">
             <div class="editorBox">
                 <div class ="editorHud">
-                    <h1 style="font-size:4em; text-align: center; color: white; margin: 0px; margin-top: 10px;">— Gallery —</h1>
+                    <h1 style="font-size:3.5em; text-align: center; color: white; margin: 0px; margin-top: 10px;">— My Patch —</h1>
                     <!-- Gallery nav -->
                     <div class="editorBtnBox" style="margin: 2em;">
 
                         <!-- Gallery picker -->
-                        <div class="row flexCenter" style="margin-bottom: 2em;" id="galleryThumbs">
+                        <div class="row flexCenter overflow-auto" style="margin-bottom: 2em;" id="galleryThumbs">
+                            <button id="newPumpkinBtn" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns" title="Create a new pumpkin">
+                                <svg version="1.1" viewBox="0 0 100 100" width="80" height="80">
+                                    <g><path style="fill:#fff;stroke:none" d="M 44.824218,24.692382 V 44.824218 H 24.692382 V 55.175781 H 44.824218 V 75.307617 H 55.175781 V 55.175781 H 75.307617 V 44.824218 H 55.175781 V 24.692382 Z"></g>
+                                </svg>
+                            </button>
                             <!-- Gallery thumb generation here -->
                         </div>
 
                         <!-- edit/download -->
                         <div class="row flexCenter" style="margin: 10px;">
                             <div class="col-md-12 flexBetween">
-                                <button type="submit" id="editBtn" class="btn btn-primary">Edit</button>
+                                <button type="submit" id="editBtn" class="btn btn-primary" style="margin-right: 15px;">Edit</button>
                                 <button type="submit" id="downloadBtn" class="btn btn-primary">Download Stencil</button>
                             </div>
                         </div>
