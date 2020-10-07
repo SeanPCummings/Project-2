@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Mouth = sequelize.define('Mouth', {
+  const Eye = sequelize.define('Eye', {
     name: {
       type: DataTypes.STRING
     },
@@ -8,11 +8,11 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Mouth.associate = function (models) {
-    Mouth.hasMany(models.Pumpkin, {
+  Eye.associate = function (models) {
+    Eye.hasMany(models.Pumpkin, {
       onDelete: 'CASCADE'
     });
   };
 
-  return Mouth;
+  return Eye;
 };

@@ -1,32 +1,37 @@
 module.exports = function (sequelize, DataTypes) {
-  const Pumpkins = sequelize.define('Pumpkins', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    eyes: {
-      type: DataTypes.TEXT
-    },
-    nose: {
-      type: DataTypes.TEXT
-    },
-    mouth: {
-      type: DataTypes.TEXT
-    },
+  const Pumpkin = sequelize.define('Pumpkin', {
     name: {
       type: DataTypes.TEXT
     }
   });
-  Pumpkins.associate = function (models) {
+  Pumpkin.associate = function (models) {
     // We're saying that a Pumpkin should belong to an User
     // A Pumpkin can't be created without an User due to the foreign key constraint
 
-    Pumpkins.belongsTo(models.User, {
+    Pumpkin.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Pumpkin.belongsTo(models.Eye, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Pumpkin.belongsTo(models.Nose, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+
+    Pumpkin.belongsTo(models.Mouth, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Pumpkins;
+
+  return Pumpkin;
 };

@@ -13,14 +13,14 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // App
-  router.get('/examples', AppController.getExamples);
-  router.post('/examples', AppController.createExample);
-  router.delete('/examples/:id', AppController.deleteExample);
-
   // Get all facial features
   router.get('/faceparts', AppController.getFaceParts);
+
+  // Save face
   router.post('/saveface', AppController.saveFace);
+
+  // Gallery
+  router.get('/gallery/:id', AppController.getGallery);
 
   return router;
 };

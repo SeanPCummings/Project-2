@@ -1,10 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  const Noses = sequelize.define('Noses', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
+  const Nose = sequelize.define('Nose', {
     name: {
       type: DataTypes.STRING
     },
@@ -12,5 +7,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  return Noses;
+
+  Nose.associate = function (models) {
+    Nose.hasMany(models.Pumpkin, {
+      onDelete: 'CASCADE'
+    });
+  };
+
+  return Nose;
 };
