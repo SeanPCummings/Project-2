@@ -5,9 +5,9 @@ let faceParts = null;
 
 // current face data for upload
 let currentFace = {
-    eyes: 0,
-    nose: 0,
-    mouth: 0,
+    EyeId: 1,
+    NoseId: 1,
+    MouthId: 1,
     name: ""
 };
 
@@ -54,8 +54,6 @@ function resetPumpkin(){
 
 //save pumpkin
 function savePumpkin() {
-    console.log(currentFace);
-    console.log(typeof currentFace.nose);
     // Send the POST request.
     $.ajax("/api/saveface", {
         type: "POST",
@@ -140,16 +138,16 @@ function setUpClickEvents(){
         switch (type) {
           case 'eyes': $('#eyespath').attr('d', faceParts.eyes[index].assetPath); 
           // active face part
-          currentFace.eyes = faceParts.eyes[index].id;  
+          currentFace.EyeId = faceParts.eyes[index].id;  
           break;
           case 'nose': $('#nosepath').attr('d', faceParts.nose[index].assetPath);           
-          currentFace.nose = faceParts.nose[index].id;  
+          currentFace.NoseId = faceParts.nose[index].id;  
           break;
           case 'mouth': $('#mouthpath').attr('d', faceParts.mouth[index].assetPath);           
-          currentFace.mouth= faceParts.mouth[index].id;  
+          currentFace.MouthId= faceParts.mouth[index].id;  
           break;
         }
-      });
+    });
 }
 
 

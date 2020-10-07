@@ -2,17 +2,6 @@ const bcrypt = require('bcrypt');
 
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define('User', {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
-    // firstName: {
-    //  type: DataTypes.STRING
-    // },
-    // lastName: {
-    //  type: DataTypes.STRING
-    // },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -42,12 +31,6 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  User.associate = function (models) {
-    User.hasMany(models.Example, {
-      onDelete: 'cascade'
-    });
-  };
-
   // This will check if an unhashed password can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
@@ -67,6 +50,12 @@ module.exports = function (sequelize, DataTypes) {
     const values = Object.assign({}, this.get());
     delete values.password;
     return values;
+  };
+
+  User.associate = function (models) {
+    User.hasMany(models.Pumpkin, {
+      onDelete: 'CASCADE'
+    });
   };
 
   return User;

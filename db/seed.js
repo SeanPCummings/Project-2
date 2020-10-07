@@ -11,13 +11,7 @@ module.exports = (db) => {
       email: 'uma@pearson.com',
       password: process.env.USER_PWD,
       isAdmin: false
-    }).then(() => {
-      db.Example.create({
-        text: 'Sample item',
-        description: 'Adam can\'t see this',
-        UserId: 2
-      });
-    });
+    }).then(() => {});
   });
 
   //= Eyes Inserts ======================//
@@ -271,9 +265,9 @@ module.exports = (db) => {
   ];
 
   // create data for db
-  db.Eyes.bulkCreate(eyesArray).then(()=> {
-    db.Noses.bulkCreate(noseArray).then(()=> {
-      db.Mouths.bulkCreate(mouthArray).then(()=>{});
+  db.Eye.bulkCreate(eyesArray).then(()=> {
+    db.Nose.bulkCreate(noseArray).then(()=> {
+      db.Mouth.bulkCreate(mouthArray).then(()=>{});
     });
   });
 

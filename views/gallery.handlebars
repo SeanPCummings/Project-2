@@ -1,34 +1,20 @@
 {{> nav/nav-block}}
 
 <!-- main container -->
-<div class="mainContainer">
+<div class="mainContainer" data-userid="{{userInfo.id}}">
     <div class="row" style="height: 100%; margin: 0px;">
-        <div class="jumbotron jumbotron-fluid flexCenter" style="padding: 0; padding-top: 3em;" role="figure">
-            <h1>Gallery</h1>
-        </div>
         
             <!-- Gallery -->
         <div class="col-md-5 editorHudFix">
             <div class="editorBox">
                 <div class ="editorHud">
+                    <h1 style="font-size:4em; text-align: center; color: white; margin: 0px; margin-top: 10px;">— Gallery —</h1>
                     <!-- Gallery nav -->
                     <div class="editorBtnBox" style="margin: 2em;">
-                        <div class="row flexCenter" style="margin-bottom: 1em;">
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="myStencils">My Stencils</button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 faceBtns" id="allStencils">All Stencils</button>
-                        </div>
 
                         <!-- Gallery picker -->
-                        <div class="row flexCenter" style="margin-bottom: 2em;">
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
-                            <button type="button" class="btn btn-primary btn-rounded btn-md ml-4 editorBtns"></button>
+                        <div class="row flexCenter" style="margin-bottom: 2em;" id="galleryThumbs">
+                            <!-- Gallery thumb generation here -->
                         </div>
 
                         <!-- edit/download -->
@@ -46,8 +32,24 @@
         <!-- pumpkin display -->
         <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
             <div class="pumpkinDisplay" style="width: 100%; height: 100%;">
-                <img src="../images/pumpkin.svg" alt="pumpkin" style="width: 100%;
-                height: 100%">
+               <!--pumpkin -->
+                {{> svg/pumpkin}}
+                    <!--eyes -->
+                    <g id="eyesgroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="eyespath"
+                        d=""/>
+                    </g>
+                    <!--nose -->
+                    <g id="nosegroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="nosepath"
+                        d=""/>
+                    </g>
+                    <!--mouth -->
+                    <g id="mouthgroup" transform="translate(0,0)">
+                        <path style="fill:#000000;fill-opacity:1;stroke:none" id="mouthpath"
+                        d=""/>
+                    </g>
+                </svg>
             </div>    
         </div>
 
