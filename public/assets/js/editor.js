@@ -128,13 +128,6 @@ function setUpClickEvents(){
         savePumpkin();
         $('.alert').hide().show();
        
-        
-    });
-
-    //on click for reset button
-    $('#resetBtn').on('click', function (event) {
-        event.preventDefault();
-        resetPumpkin();
     });
 
     // on click for thumbnails
