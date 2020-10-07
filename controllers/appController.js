@@ -43,7 +43,14 @@ module.exports = function (db) {
       db.Pumpkins.create(userFace).then(function (val) {
         res.json(val);
       });
-    } 
+    }, 
 
+    // Get gallery
+    getGallery: function (req, res) {
+
+      db.Pumpkins.
+
+      res.json({val: 22});
+    } 
   };
 };

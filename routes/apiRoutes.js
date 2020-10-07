@@ -20,7 +20,12 @@ module.exports = (passport, db) => {
 
   // Get all facial features
   router.get('/faceparts', AppController.getFaceParts);
+
+  // Save face
   router.post('/saveface', AppController.saveFace);
+
+  // Gallery
+  router.get('/gallery', AppController.getGallery);
 
   return router;
 };
