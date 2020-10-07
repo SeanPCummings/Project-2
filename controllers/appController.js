@@ -21,7 +21,7 @@ module.exports = function (db) {
       });
     },
 
-    // get faces DELETE LATER TEST ONLY
+    // get faces
     getFaceParts: function (req, res) {
       const promise1 = db.Eyes.findAll({});
       const promise2 = db.Noses.findAll({});
@@ -35,21 +35,14 @@ module.exports = function (db) {
         }
         res.json(faceData);
       });
-      
-      //res.json(testFaceData);
     },
 
+    // Save pumpkin face
     saveFace: function (req, res) {
-      console.log(req.body);
-      let userFace = req.body.byid
-      req.body = parseInt(req.body, NaN)
-      //TODO: 
-        db.Pumpkin.create(userFace).then(function(){
-          console.log("pumpkin added to db")
-          res.json(userFace);
-        })
-      // 1. within userFace convert values of eyes nose and mouth into integers, right now they're strings
-      // 2. insert userFace into the database
+      let userFace = JSON.parse(req.body.val);
+      db.Pumpkins.create(userFace).then(function (val) {
+        res.json(val);
+      });
     } 
 
   };

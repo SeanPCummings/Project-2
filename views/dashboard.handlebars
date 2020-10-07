@@ -4,38 +4,30 @@
     <p class="lead">Pixel Patch</p>
     <div>
       {{#if isloggedin}}
-        <div class="row">
-          <div class="col col-md-12">
-            You are logged in as {{user.email}} <br>
-            <a href="/logout"> <button type="btn" class="btn" style="margin-top: 25px;">Logout</button></a>
-          </div>  
+      <div class="row">
+        <div class="col col-md-12" style="height: 100vh;">
+          You are logged in as {{user.email}} <br>
+          <a href="/logout"> <button type="btn" class="btn" style="margin-top: 25px;">Logout</button></a>
         </div>  
-      </div>
+      </div>  
+    </div>
   
       {{else}}
         <div class="container" style="background: rgba(0, 0, 0,.5) !important;">
           <div class="row">
             <div class="col col-md-12">
               <header class="create-user-wrap header-wrap" align="center">
-                <h2>Create Your Account</h2>
+                <h2>Sign in</h2>
                 <h3 id="create-err-msg"></h3>
               </header>
 
-              <h3 id="err-msg"></h3>
-
               <form id= "create-form">
-                 
                 <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <input type="text" class="form-control" id="email" placeholder="Email">
                   </div>
-                </div>
-
-                <div class="form-row">
                   <div class="form-group col-md-12">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="user_password" placeholder="Password">
                   </div>
                 </div>
 
@@ -43,12 +35,12 @@
                   <h2 id="message"></h2>
                 </div>
 
-                <button type="submit" id="add-user" class="btn btn-primary">Submit</button>
+                <button id="login" type="button" class="btn btn-primary">Login</button>
               </form>
             </div>
           </div>
-          <p>You need to log in to use this app.</p>
-        </div>    
+          <p>You need to log in to use this app. Don't have a login? Sign up!</p>
+        </div>
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>

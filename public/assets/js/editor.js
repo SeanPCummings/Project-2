@@ -1,6 +1,5 @@
 /*eslint-disable*/
 
-
 // global faceParts object
 let faceParts = null;
 
@@ -56,16 +55,16 @@ function resetPumpkin(){
 //save pumpkin
 function savePumpkin() {
     console.log(currentFace);
-
+    console.log(typeof currentFace.nose);
     // Send the POST request.
     $.ajax("/api/saveface", {
         type: "POST",
-        data: currentFace
+        data: {val: JSON.stringify(currentFace)}
       }).then(
         function() {
-          console.log("new faceee");
           // Reload the page
           location.reload();
+        
         }
       );
 }
@@ -122,9 +121,14 @@ function setUpClickEvents(){
     //on click for save button
     $('#saveBtn').on('click', function (event) {
         event.preventDefault();
+        const userid = parseInt(event.currentTarget.dataset.userid);
         let name = $("#designName").val().trim();
         currentFace.name = name;
+        currentFace.UserId = userid;
         savePumpkin();
+        $('.alert').hide().show();
+       
+        
     });
 
     //on click for reset button
