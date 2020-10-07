@@ -1,6 +1,5 @@
 /*eslint-disable*/
 
-
 // global faceParts object
 let faceParts = null;
 
@@ -65,6 +64,7 @@ function savePumpkin() {
         function() {
           // Reload the page
           location.reload();
+        
         }
       );
 }
@@ -126,12 +126,8 @@ function setUpClickEvents(){
         currentFace.name = name;
         currentFace.UserId = userid;
         savePumpkin();
-    });
-
-    //on click for reset button
-    $('#resetBtn').on('click', function (event) {
-        event.preventDefault();
-        resetPumpkin();
+        $('.alert').hide().show();
+       
     });
 
     // on click for thumbnails
