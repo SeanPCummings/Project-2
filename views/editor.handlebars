@@ -3,9 +3,6 @@
 <!-- main container -->
 <div class="mainContainer">
     <div class="row" style="height: 100%; margin: 0px;">
-        <div class="jumbotron jumbotron-fluid flexCenter" style="padding: 0; padding-top: 3em;" role="figure">
-            <h1>Editor</h1>
-        </div>
         <!-- pumpkin display -->
         <div class="col-md-7" style="padding-left: 0px; padding-right: 0px;">
             <div class="pumpkinDisplay">
@@ -33,6 +30,7 @@
         <div class="col-md-5 editorHudFix">
             <div class="editorBox">
                 <div class ="editorHud">
+                    <h1 style="font-size:4em; text-align: center; color: white; margin: 0px; margin-top: 10px;">— Editor —</h1>
                     <div class="editorBtnBox">
                         <!-- face nav -->
                         <div class="row flexCenter" style="margin-bottom: 1em;" id="faceNav">
@@ -55,14 +53,11 @@
                         <!-- save design -->
                         <div class="row flexCenter" style="margin: 10px;">
                             <form id= "create-form" style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <input type="text" class="form-control" id="designName" placeholder="Name your design">
+                                <div class="form-row flexBetween">
+                                    <div class="form-group" style="margin-right: 20px;">
+                                        <input type="text" class="form-control" id="designName" placeholder="Name your design" style="width: 100%;">
                                     </div>
-                                    <div class="col-md-12 flexBetween">
-                                        <button type="submit" id="saveBtn" class="btn btn-primary" data-userid="{{userInfo.id}}">Save</button>
-                                        <button type="submit" id="resetBtn" class="btn btn-primary">Reset</button>
-                                    </div>
+                                    <button type="submit" id="saveBtn" style="margin-bottom: 16px;" class="btn btn-primary" data-userid="{{userInfo.id}}">Save</button>
                                 </div>
                             </form>    
                         </div>
