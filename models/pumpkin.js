@@ -5,9 +5,6 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
   Pumpkin.associate = function (models) {
-    // We're saying that a Pumpkin should belong to an User
-    // A Pumpkin can't be created without an User due to the foreign key constraint
-
     Pumpkin.belongsTo(models.Eye, {
       foreignKey: {
         allowNull: false

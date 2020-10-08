@@ -46,7 +46,6 @@ module.exports = (db, app, passport) => {
 
   // Hook up Passport Local Strategy
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-    // console.log('new local strategy', email, password);
     // When a user tries to log in this code runs
     db.User.findOne({ where: { email: email } }).then((user) => {
       // If there's no user with the given email
@@ -54,7 +53,6 @@ module.exports = (db, app, passport) => {
         return done(null, false, { error: 'No user found.' });
       } else if (!user.validPassword(password)) {
         // If there is a user with the given email, but the password the user gives us is incorrect
-        // console.log('pwd correct:', user);
         return done(null, false, {
           error: 'Oops! Wrong password.!'
         });

@@ -93,17 +93,13 @@ $('#confirm-delete').on('click', function (event) {
   }
 });
 
-// is now for registering, not logging in
+// Login modal is now for registering, not logging in
 $('#login-modal').on('click', function (event) {
   event.preventDefault();
   $('#user-info').modal('show');
 });
 
-$('#go-home').on('click', function (event) {
-  event.preventDefault();
-  window.location.href = '/';
-});
-
+// Actual login
 $('#login').on('click', function (event) {
   event.preventDefault();
 
@@ -114,7 +110,7 @@ $('#login').on('click', function (event) {
 
   $.post('/api/login', user, (result) => {
     if (result.loggedIn) {
-      $(document.location).attr('href', '/dashboard');
+      $(document.location).attr('href', '/gallery');
     } else {
       $('#login-err-msg').empty('').text(result.error);
       $('#user-info').modal('hide');
