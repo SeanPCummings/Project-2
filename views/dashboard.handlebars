@@ -1,4 +1,5 @@
 {{> nav/nav-block user=false register=true}}
+
 <div id="main-container" class="mainContainer flexCenter mainPgImg">
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead">Pixel Patch</p>
@@ -21,6 +22,7 @@
                 <h3 id="create-err-msg"></h3>
               </header>
 
+              <!-- Login form -->
               <form id= "create-form">
                 <div class="form-row">
                   <div class="form-group col-md-12">
@@ -31,6 +33,7 @@
                   </div>
                 </div>
 
+                <!-- Message -->
                 <div>
                   <h2 id="message"></h2>
                 </div>
@@ -42,6 +45,7 @@
           <p>You need to log in to use this app. Don't have a login? Sign up!</p>
         </div>
       {{/if}}
+      <!-- Error Message -->
       <h5 id="login-err-msg"></h5>
     </div>
   </div>

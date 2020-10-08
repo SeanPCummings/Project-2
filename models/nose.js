@@ -9,9 +9,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Nose.associate = function (models) {
-    Nose.hasMany(models.Pumpkin, {
-      onDelete: 'CASCADE'
-    });
+    Nose.hasMany(models.Pumpkin, {});
   };
 
   return Nose;
