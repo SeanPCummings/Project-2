@@ -14,7 +14,7 @@
   The user will be able to create, save, edit, and print stencils to use to carve their own pumpkins. 
 
   ![Log in](https://user-images.githubusercontent.com/63686990/95408791-4e126880-08ee-11eb-93d3-cc69fa2d0463.png)
-  ![Editor](/assets/images/screenshots/image2.png)
+  ![Editor](https://user-images.githubusercontent.com/63686990/95409205-253ea300-08ef-11eb-9be5-a81a020173a5.png)
   !["My Patch"](/assets/images/screenshots/image3.png)
 
   ## Installation
