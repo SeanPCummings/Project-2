@@ -23,7 +23,7 @@
               </header>
 
               <!-- Login form -->
-              <form id= "create-form">
+              <form id= "create-form" style="margin-top: 0px;">
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <input type="text" class="form-control" id="email" placeholder="Email">
@@ -42,7 +42,7 @@
               </form>
             </div>
           </div>
-          <p>You need to log in to use this app. Don't have a login? Sign up!</p>
+          <p>You need to log in to use this app. Don't have a login? <a href="#" id="sign-up-link">Sign up!</a></p>
         </div>
       {{/if}}
       <!-- Error Message -->
@@ -51,4 +51,4 @@
   </div>
 </div>
 
-{{> modal/login-block}}
+{{> modal/register-block}}
