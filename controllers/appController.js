@@ -22,6 +22,7 @@ module.exports = function (db) {
     // Save pumpkin face
     saveFace: function (req, res) {
       let userFace = JSON.parse(req.body.val);
+      console.log("Hello im here");
       console.log(userFace);
       db.Pumpkin.create(userFace).then(function (val) {
         res.json(val);
