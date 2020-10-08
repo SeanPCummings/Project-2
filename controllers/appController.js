@@ -22,8 +22,6 @@ module.exports = function (db) {
     // Save pumpkin face
     saveFace: function (req, res) {
       let userFace = JSON.parse(req.body.val);
-      console.log("Hello im here");
-      console.log(userFace);
       db.Pumpkin.create(userFace).then(function (val) {
         res.json(val);
       });
@@ -42,6 +40,15 @@ module.exports = function (db) {
     // Get single pumpkin
     getPumpkin: function (req, res) {
       db.Pumpkin.findOne({
+        where: {id: req.params.id}
+      }).then(val => {
+        res.json(val);
+      });
+    },
+
+    // Get single pumpkin to delete
+    deletePumpkin: function (req, res) {
+      db.Pumpkin.destroy({
         where: {id: req.params.id}
       }).then(val => {
         res.json(val);

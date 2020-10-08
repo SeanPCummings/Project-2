@@ -60,7 +60,6 @@ function setPumpkin(){
         type: "GET",
         url: "/api/pumpkin/" + pumpkinId,    
         success: function(response) {
-            console.log(response);
             currentFace.EyeId = response.EyeId;  
             currentFace.NoseId = response.NoseId;  
             currentFace.MouthId = response.MouthId;  
@@ -116,14 +115,13 @@ function startUp(){
         type: "GET",
         url: "/api/faceparts",    
         success: function(response) {
-            console.log(response);
             faceParts = response;
             buildThumbnails();
             resetPumpkin();
             setPumpkin();
             setUpClickEvents();
         }
-      });
+    });
 }
 
 ////////CLICK EVENTS FOR EDITOR PAGE///////////

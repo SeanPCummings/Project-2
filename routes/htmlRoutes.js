@@ -1,15 +1,6 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
-  // Load register page
-  // router.get('/register', (req, res) => {
-  //   if (req.isAuthenticated()) {
-  //     res.redirect('/profile');
-  //   } else {
-  //     res.render('register');
-  //   }
-  // });
-
   // Load profile page
   router.get('/profile', (req, res) => {
     if (req.isAuthenticated()) {
@@ -97,16 +88,6 @@ module.exports = (db) => {
         include: [db.Eye, db.Nose, db.Mouth]
       }).then(val => {
         val = val.toJSON();
-        // let output = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>';
-        // output += '<svg version="1.1" viewBox="0 0 129 100" width="11in" height="8.5in">';
-        // output += '<g><path style="fill:#000;stroke:none" d="' + val.Eye.assetPath + '"></g>';
-        // output += '<g><path style="fill:#000;stroke:none" d="' + val.Nose.assetPath + '"></g>';
-        // output += '<g><path style="fill:#000;stroke:none" d="' + val.Mouth.assetPath + '"></g>';
-        // output += '</svg>';
-        // //console.log(output);
-        // res.header('Content-Type', 'image/svg+xml');
-        // //res.status(200).send(output);
-        // res.status(200).send(Buffer.from(output));
         res.render('stencil', {
           pumpkinData: val
         });
