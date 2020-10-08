@@ -93,8 +93,14 @@ $('#confirm-delete').on('click', function (event) {
   }
 });
 
-// Login modal is now for registering, not logging in
-$('#login-modal').on('click', function (event) {
+// Login modal is now for registering, not logging in, nav
+$('#register-modal').on('click', function (event) {
+  event.preventDefault();
+  $('#user-info').modal('show');
+});
+
+// Sign up link, dashboard
+$('#sign-up-link').on('click', function (event) {
   event.preventDefault();
   $('#user-info').modal('show');
 });
