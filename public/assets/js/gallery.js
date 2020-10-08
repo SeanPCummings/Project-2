@@ -14,7 +14,7 @@ function faceLoop(){
         faceSVG += '<g><path style="fill:#000000;stroke:none" d="' + faceParts[i].Nose.assetPath + '"></g>';
         faceSVG += '<g><path style="fill:#000000;stroke:none" d="' + faceParts[i].Mouth.assetPath + '"></g>';
         faceSVG += '</svg>';
-        const faceBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr('title', faceParts[i].name).html(faceSVG);
+        const faceBtn = $('<button>').addClass('btn btn-primary btn-rounded btn-md ml-4 editorBtns').attr("data-index", i).attr('title', faceParts[i].name).attr("id", "face" + faceParts[i].id).html(faceSVG);
         $("#galleryThumbs").append(faceBtn);
     }
 }
@@ -36,10 +36,22 @@ function startUp(){
         type: "GET",
         url: "/api/gallery/" + userId,    
         success: function(response) {
-            console.log(response);
             faceParts = response;
             buildThumbnails();
             setUpClickEvents();
+        }
+    });
+}
+
+// ajax call to delete pumpkin
+function deletePumpkin(){
+    
+    //const userId = $(".mainContainer").data("userid");
+    $.ajax({
+        type: "DELETE",
+        url: "/api/pumpkin/" + currentFaceId,    
+        success: function(response) {
+            $('#face' + currentFaceId).remove();
         }
     });
 }
@@ -58,11 +70,21 @@ function setUpClickEvents() {
         event.preventDefault();
         window.location.href = "/editor";
     });
+    
+    //on click for delete button
+    $('#deleteBtn').on('click', function (event) {
+        event.preventDefault();
+        if(currentFaceId != 0){
+            deletePumpkin();
+        }
+    });
 
-    //on click for download button
+    //on click for print stencil
     $('#downloadBtn').on('click', function (event) {
         event.preventDefault();
-        window.location.href = "/stencil/" + currentFaceId;
+        if(currentFaceId != 0){
+            window.location.href = "/stencil/" + currentFaceId;
+        }
     });
 
     // on click for thumbnails for gallery
@@ -81,7 +103,6 @@ function setUpClickEvents() {
         $('#mouthpath').attr('d', faceParts[index].Mouth.assetPath);  
         
         currentFaceId = faceParts[index].id;
-        console.log(currentFaceId);
 
     });
 }

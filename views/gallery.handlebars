@@ -4,7 +4,7 @@
 <div class="mainContainer" data-userid="{{userInfo.id}}">
     <div class="row" style="height: 100%; margin: 0px;">
         
-            <!-- Gallery -->
+        <!-- Gallery -->
         <div class="col-md-5 editorHudFix">
             <div class="editorBox">
                 <div class ="editorHud">
@@ -25,8 +25,17 @@
                         <!-- edit/download -->
                         <div class="row flexCenter" style="margin: 10px;">
                             <div class="col-md-12 flexBetween">
-                                <button type="submit" id="editBtn" class="btn btn-primary" style="margin-right: 15px;">Edit</button>
-                                <button type="submit" id="downloadBtn" class="btn btn-primary">Download Stencil</button>
+                                <button type="submit" id="editBtn" class="btn btn-primary" style="margin-right: 15px; padding: 3px;" title="Edit Pumpkin">
+                                    <img src="/images/edit.svg" width="48" height="48">
+                                </button>
+
+                                <button type="submit" id="deleteBtn" class="btn btn-primary" style="margin-right: 15px; padding: 3px;" title="Delete Pumpkin">
+                                    <img src="/images/trash.svg" width="48" height="48">
+                                </button>
+
+                                <button type="submit" id="downloadBtn" class="btn btn-primary" style="padding: 3px;" title="Print Stencil">
+                                    <img src="/images/printer.svg" width="48" height="48">
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -57,7 +66,6 @@
                 </svg>
             </div>    
         </div>
-
 
     </div>
 </div>

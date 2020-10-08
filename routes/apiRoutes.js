@@ -25,5 +25,8 @@ module.exports = (passport, db) => {
   // Get single pumpkin
   router.get('/pumpkin/:id', AppController.getPumpkin);
 
+  // Delete pumpkin
+  router.delete('/pumpkin/:id', AppController.deletePumpkin);
+
   return router;
 };
