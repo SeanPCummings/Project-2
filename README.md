@@ -13,7 +13,7 @@
   [Pixel Patch](https://project-2-team6.herokuapp.com/editor) is an interactive pumpkin carving stencil maker! Pixel Patch is fun for users of all ages! For children and adults alike. 
   The user will be able to create, save, edit, and print stencils to use to carve their own pumpkins. 
 
-  ![Log in](<img width="1262" alt="image1" src="https://user-images.githubusercontent.com/63686990/95408700-14416200-08ee-11eb-8222-07fb68f34ed0.png">)
+  ![Log in](https://github.com/SeanPCummings/Project-2/issues/21)
   ![Editor](/assets/images/screenshots/image2.png)
   !["My Patch"](/assets/images/screenshots/image3.png)
 
