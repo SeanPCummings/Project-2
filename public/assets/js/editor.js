@@ -162,7 +162,7 @@ function setUpClickEvents(){
         currentFace.UserId = userid;
         savePumpkin();
         $('.alert').hide().show();
-        //$('#designName').val('');
+        $('#designName').val('');
     });
 
     // on click for thumbnails
