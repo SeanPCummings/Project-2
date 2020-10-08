@@ -15,7 +15,7 @@
 
   ![Log in](https://user-images.githubusercontent.com/63686990/95408791-4e126880-08ee-11eb-93d3-cc69fa2d0463.png)
   ![Editor](https://user-images.githubusercontent.com/63686990/95409205-253ea300-08ef-11eb-9be5-a81a020173a5.png)
-  !["My Patch"](/assets/images/screenshots/image3.png)
+  !["My Patch"](https://user-images.githubusercontent.com/63686990/95409320-5a4af580-08ef-11eb-8fdb-afd6c024b0d4.png)
 
   ## Installation
   This app is deployed on Heroku, no need to install! 
