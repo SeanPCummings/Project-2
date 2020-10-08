@@ -99,6 +99,7 @@ function savePumpkin() {
         function() {
         // Reload the page
         location.reload();
+        console.log("save successful");
         }
     );
 }
@@ -161,6 +162,7 @@ function setUpClickEvents(){
         currentFace.UserId = userid;
         savePumpkin();
         $('.alert').hide().show();
+        //$('#designName').val('');
     });
 
     // on click for thumbnails
