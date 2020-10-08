@@ -1,7 +1,8 @@
+
 module.exports = (passport, db) => {
   return {
+    // Register
     register: (req, res) => {
-      console.log(req.body);
       if (!req.body.email || !req.body.password || !req.body.username) {
         return res.json({ message: 'Email and Password required!' });
       }
@@ -17,10 +18,21 @@ module.exports = (passport, db) => {
           res.status(200).json({ message: 'Registered successfully.' });
         });
       }).catch((err) => {
-        console.log(err);
-        res.status(403).json({ error: 'Email already exists!' });
+        let errorMsg = 'Unknown';
+        const error = err.errors[0];
+        if (error.type === 'unique violation') {
+          if (error.path === 'users.Users_username_unique') {
+            errorMsg = 'Username already exists';
+          }
+          if (error.path === 'users.Users_email_unique') {
+            errorMsg = 'Email account already exists';
+          }
+        }
+        res.status(403).json({ error: errorMsg });
       });
     },
+
+    // Login
     login: (req, res, next) => {
       passport.authenticate('local', (err, user) => {
         if (err) {
@@ -38,6 +50,8 @@ module.exports = (passport, db) => {
         }
       })(req, res, next);
     },
+
+    // Logout
     logout: (req, res, next) => {
       req.logout();
       req.session.destroy((err) => {
@@ -48,19 +62,21 @@ module.exports = (passport, db) => {
         res.redirect('/');
       });
     },
+
+    // Update User
     updateUser: (req, res) => {
-      // console.log('req.body:', req.body);
       db.User.update({
+        username: req.body.username,
         email: req.body.email,
-        // lastName: req.body.lastName,
         password: req.body.password
       }, {
         where: { id: req.params.id }
       }).then(result => {
-        // console.log(result);
         res.json(result);
       });
     },
+
+    // Confirm Authentication
     confirmAuth: (req, res) => {
       const email = req.body.email;
       const pwd = req.body.password;
@@ -77,6 +93,8 @@ module.exports = (passport, db) => {
         return res.json(true);
       });
     },
+
+    // Delete User
     deleteUser: (req, res) => {
       db.User.destroy({
         where: { id: req.params.id }

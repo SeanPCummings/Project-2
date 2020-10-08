@@ -13,7 +13,6 @@ module.exports = (db) => {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated()
         };
-        // console.log(user);
         res.render('profile', user);
       });
     } else {
@@ -41,7 +40,6 @@ module.exports = (db) => {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      console.log(req.session.passport);
       res.render('dashboard', user);
     } else {
       res.render('dashboard');
@@ -65,7 +63,6 @@ module.exports = (db) => {
   router.get('/editor/:id?', function (req, res) {
     if (req.isAuthenticated()) {
       const pumpkinId = req.params.id ? req.params.id : 0;
-      console.log(pumpkinId);
       res.render('editor', {
         userInfo: req.session.passport.user,
         isloggedin: req.isAuthenticated(),

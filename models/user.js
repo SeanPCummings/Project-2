@@ -61,9 +61,7 @@ module.exports = function (sequelize, DataTypes) {
   };
 
   User.associate = function (models) {
-    User.hasMany(models.Pumpkin, {
-      onDelete: 'CASCADE'
-    });
+    User.hasMany(models.Pumpkin, {});
   };
 
   return User;

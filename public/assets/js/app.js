@@ -2,27 +2,30 @@ $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
-    // firstName: $('#inputFirst').val().trim(),
-    // lastName: $('#inputLast').val().trim(),
     username: $('#inputUser').val().trim(),
     email: $('#inputEmail').val().trim(),
     password: $('#inputPassword').val().trim()
   };
-  // in case we want to keep first and last name add && newAccount.lastName.length > 0 && newAccount.firstName.length > 0
+  // Make new account
   if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.username.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
-      data: newAccount
-    }).then(() => {
-      window.location.href = '/';
+      data: newAccount,
+      success: (result) => {
+        window.location.href = '/';
+        console.log(result);
+      },
+      error: (xml, textStatus, errorThrown) => {
+        $('#create-err-msg').empty('').text('**' + xml.responseJSON.error + '**');
+      }
     });
   } else {
-    console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
 
+// Update User
 $('#update-user').on('click', function (event) {
   event.preventDefault();
 
@@ -30,27 +33,22 @@ $('#update-user').on('click', function (event) {
 
   // capture All changes
   const changeUser = {
-    // firstName: $('#inputFirst').val().trim(),
-    username: $('#inputUser').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    username: $('#inputUpdateUser').val().trim(),
+    email: $('#inputUpdateEmail').val().trim(),
+    password: $('#inputUpdatePassword').val().trim()
   };
-  $('#err-msg').empty('');
-  // $('#change-user-modal').modal('show');
-  console.log(changeUser);
 
-  if (changeUser.email.length > 0 && changeUser.password.length > 0 && changeUser.username.length > 0) {
+  $('#err-msg').empty('');
+  if (changeUser.email.length > 0 && changeUser.password.length > 0) {
     $.ajax({
       type: 'PUT',
       url: `/api/user/${id}`,
       data: changeUser
     }).then((result) => {
-      console.log('Updated user:', result);
       // Reload the page to get the updated list
       window.location.href = '/logout';
     });
   } else {
-    console.log('**Please fill out entire form**');
     $('#update-err-msg').empty('').text('**Please fill out entire form**');
   }
 });
@@ -62,6 +60,7 @@ $('#delete-user').on('click', function (event) {
   $('#delete-user-modal').modal('show');
 });
 
+// Confirm Delete
 $('#confirm-delete').on('click', function (event) {
   event.preventDefault();
 
@@ -69,11 +68,10 @@ $('#confirm-delete').on('click', function (event) {
 
   const deleteUser = {
     email: $('#userEmail').val().trim(),
-    password: $('#userPassword').val().trim(),
-    username: $('#inputUser').val().trim()
+    password: $('#userPassword').val().trim()
   };
 
-  if (deleteUser.email.length > 0 && deleteUser.password.length > 0 && deleteUser.username.length > 0) {
+  if (deleteUser.email.length > 0 && deleteUser.password.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/user/confirm',
@@ -83,7 +81,6 @@ $('#confirm-delete').on('click', function (event) {
         $.ajax(`/api/user/${id}`, {
           type: 'DELETE'
         }).then(() => {
-          console.log('Deleted user', deleteUser);
           // Reload the page to get the updated list
           window.location.href = '/logout';
         });
@@ -92,15 +89,9 @@ $('#confirm-delete').on('click', function (event) {
       }
     });
   } else {
-    console.log('fill out entire form');
     $('#err-msg').empty('').text('fill out entire form');
   }
 });
-
-// $('#register').on('click', function (event) {
-//   event.preventDefault();
-//   window.location.href = '/register';
-// });
 
 // is now for registering, not logging in
 $('#login-modal').on('click', function (event) {
@@ -122,7 +113,6 @@ $('#login').on('click', function (event) {
   };
 
   $.post('/api/login', user, (result) => {
-    // console.log(result);
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {
