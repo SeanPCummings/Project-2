@@ -97,8 +97,6 @@ function savePumpkin() {
         data: {val: JSON.stringify(currentFace)}
     }).then(
         function() {
-        // Reload the page
-        location.reload();
         console.log("save successful");
         }
     );
@@ -160,9 +158,29 @@ function setUpClickEvents(){
         let name = $("#designName").val().trim();
         currentFace.name = name;
         currentFace.UserId = userid;
+
+        ///attempt at error handling the save button
+        // if('#designName'){
+        //     $('#designName').empty('').text('You must name your stencil to save it.');
+
+        // } else {
         savePumpkin();
-        $('.alert').hide().show();
-        //$('#designName').val('');
+        //show alert
+        $('.alert').hide().show()
+        //.then(function() {
+        //     e.preventDefault();
+        //     $(this).parent().hide();
+        // });
+        //clear name input box
+        $('#designName').val('');
+        //reset the pumpkin to the default pumpkin
+        resetPumpkin();
+           
+
+    });
+    $(document).on('click', "button.close", function (e) { // Actually live method is absolute for latest Jquery 
+        e.preventDefault();  // This is for safe if there any default behavior
+        $(this).parent().hide();
     });
 
     // on click for thumbnails

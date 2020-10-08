@@ -1,24 +1,55 @@
-[![Build Status](https://travis-ci.com/SeanPCummings/Project-2.svg?branch=master)](https://travis-ci.com/SeanPCummings/Project-2)
+# Pixel Patch | UNC Coding Bootcamp | Project2-Team6 
 
-# Project 2 Starter with Auth
+ ## Table of Contents
+  - [Description](#Description)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [License](#License)
+  - [Contributing](#Contributing)
+  - [Questions](#Questions)
 
-A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
+  ## Description
 
-## Live link:
-https://project2-starter-auth.herokuapp.com/
+  [Pixel Patch](https://project-2-team6.herokuapp.com/editor) is an interactive pumpkin carving stencil maker! Pixel Patch is fun for users of all ages! For children and adults alike. 
+  The user will be able to create, save, edit, and print stencils to use to carve their own pumpkins. 
 
-## Requirements:
+<<<<<<< HEAD
+  ![Log in](../assets/images/image1.png)
+  ![Editor](../assets/images/image2.png)
+  !["My Patch"](../assets/images/image3.png)
 
-* Add `.env` file with the following content:
+=======
+>>>>>>> 1f217987c4cbb70025144a93b5668d866b64809a
+  ## Installation
+  This app is deployed on Heroku, no need to install! 
+  Here is the link: 
 
-```
-SEQUELIZE_USER=your_mysql_db_user
-SEQUELIZE_PASSWORD=your_mysql_db_password
-SEQUELIZE_HOST=your_mysql_db_host
-AUTH_SECRET=your_auth_secret_key
-ADMIN_USER_PWD=admin_password
-USER_PWD=user_pwd
-FORCE_SYNC=true_or_false
-TU=mysql_user
-TP=mysql_password
-```
+  [Pixel Patch](https://project-2-team6.herokuapp.com/editor) 
+  
+  Happy Carving!
+
+  ## Usage
+  In order to use this app you must provide an email log in. Once you are in, you will be able to navigate to the editor page to design your stencil. Once your you've made your face you can click save. Once you click save it will automatically be updated to your "Patch" If you navigate to "My Patch" you will see images of the stencils you have saved. You will then be able to edit, delete, and print your stencil! 
+  
+  ![Log in](https://user-images.githubusercontent.com/63686990/95408791-4e126880-08ee-11eb-93d3-cc69fa2d0463.png)
+  ![Editor](https://user-images.githubusercontent.com/63686990/95409205-253ea300-08ef-11eb-9be5-a81a020173a5.png)
+  !["My Patch"](https://user-images.githubusercontent.com/63686990/95409320-5a4af580-08ef-11eb-8fdb-afd6c024b0d4.png)
+
+  ## License
+  ![badge](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+  [MIT](https://opensource.org/licenses/MIT)
+
+  ## Contributing
+   GitHub: [CptSpooky](https://github.com/CptSpooky)
+
+   GitHub: [chelSEA-88](https://github.com/ChelSEA-88)
+   
+   GitHub: [seanPCummings](https://github.com/SeanPCummings)
+
+  ## Questions
+  [GitHub: CptSpooky](https://github.com/CptSpooky)
+  [Email: legacyofthedonut@gmail.com](legacyofthedonut@gmail.com)
+  Contact me! Email me or message me on LinkedIn!
+
+  
